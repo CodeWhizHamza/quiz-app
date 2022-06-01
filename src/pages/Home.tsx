@@ -14,8 +14,10 @@ export default function Home({ setStartQuiz, setApiURL }: IHomeProps) {
 
   const handleChange = (e: React.ChangeEvent) => {
     const target = e.target as HTMLInputElement
-    const formDataCopy: IFormData = { ...formData }
-    formDataCopy[target.name as keyof typeof formData] = target.value
+    const targetName = target.name as string
+
+    const formDataCopy: any = { ...formData }
+    formDataCopy[targetName as keyof IFormData] = target.value
     setFormData(formDataCopy)
   }
   const setUrl = () => {
